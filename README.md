@@ -1,2 +1,2 @@
 # HackerRank
-Doing random problems for fun in Java7
+Doing random problems for fun in Java7 (mostly)
