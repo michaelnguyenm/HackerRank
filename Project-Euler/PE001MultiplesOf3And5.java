@@ -34,11 +34,17 @@ public class PE001MultiplesOf3And5 {
     public static void solve(int upperBound) {
         int arr[] = {3, 2, 1, 3, 1, 2, 3};
         int sum = 0;
-        for (int n = 1; n < upperBound &&) {
-            
+        int num = 0;
+        while(num <= upperBound) {
+            int i = 0;
+            if (i >= arr.length) {
+                i = 0;
+            }
+            num += arr[i];
+            if (num <= upperBound)
+                sum += num;
+            i++;
         }
-        
-        
         System.out.printf("%d\n", sum);
     }
 }
