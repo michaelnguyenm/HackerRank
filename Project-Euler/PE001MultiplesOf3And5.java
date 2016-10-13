@@ -15,33 +15,17 @@ public class PE001MultiplesOf3And5 {
         }
     }
     
-    /*
-    3  +3
-    5  +2
-    6  +1
-    9  +3
-    10 +1
-    12 +2
-    15 +3
-    18 +3
-    20 +2
-    21 +1
-    24 +3
-    25 +1
-    27 +2
-    30 +3
-    */
     public static void solve(int upperBound) {
-        int arr[] = {3, 2, 1, 3, 1, 2, 3};
+        int arr[] = {3, 2, 1, 3, 1, 2, 3}; //Increment for multiples of 3 and 5
         int sum = 0;
         int num = 0;
-        while(num <= upperBound) {
-            int i = 0;
+        int i = 0;
+        while(num < upperBound) {
             if (i >= arr.length) {
                 i = 0;
             }
             num += arr[i];
-            if (num <= upperBound)
+            if (num < upperBound)
                 sum += num;
             i++;
         }
