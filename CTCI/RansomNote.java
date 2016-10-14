@@ -16,7 +16,7 @@ public class RansomNote {
         Integer frequencies;
         for (int i = 0; i < num; i++) {
             String word = s.next();
-            frequencies = m.get(s);
+            frequencies = m.get(word);
             //Has key
             if (frequencies == null) {
                 m.put(word, 1);
@@ -47,10 +47,10 @@ public class RansomNote {
         // Eat whitespace to beginning of next line
         scanner.nextLine();
         
-        RansomNote s = new RansomNote(scanner.nextLine(), scanner.nextLine(), m, n);
+        RansomNote rn = new RansomNote(scanner.nextLine(), scanner.nextLine(), m, n);
         scanner.close();
         
-        boolean answer = s.solve();
+        boolean answer = rn.solve();
         if(answer)
             System.out.println("Yes");
         else System.out.println("No");
