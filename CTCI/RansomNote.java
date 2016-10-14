@@ -4,31 +4,35 @@ public class RansomNote {
     Map<String, Integer> magazineMap;
     Map<String, Integer> noteMap;
     
-    public Solution(String magazine, String note, int m, int n) {
+    public RansomNote(String magazine, String note, int m, int n) {
         magazineMap = new Hashtable<String, Integer>();
         noteMap = new Hashtable<String, Integer>();
         addToMap(magazineMap, magazine, m);
         addToMap(noteMap, note, n);
     }
     
-    public void addToMap(Map<String, Integer> m, String line, int num) {
+    public static void addToMap(Map<String, Integer> m, String line, int num) {
         Scanner s = new Scanner(line);
+        Integer frequencies;
         for (int i = 0; i < num; i++) {
             String word = s.next();
+            frequencies = m.get(s);
             //Has key
-            if (m.containsKey(word)) {
-                m.put(word, m.get(s) + 1);
+            if (frequencies == null) {
+                m.put(word, 1);
             //Does not have key
             } else {
-                m.put(word, 1);
+                m.put(word, frequencies + 1);
             }
         }
     }
     
     public boolean solve() {
         for (String s : noteMap.keySet()) {
-            int noteFrequency = noteMap.get(s);
-            int magazineFrequency = magazineMap.get(s);
+            Integer noteFrequency = noteMap.get(s);
+            Integer magazineFrequency = magazineMap.get(s);
+            if (magazineFrequency == null)
+                return false;
             if (noteFrequency > magazineFrequency)
                 return false;
         }
@@ -43,7 +47,7 @@ public class RansomNote {
         // Eat whitespace to beginning of next line
         scanner.nextLine();
         
-        Solution s = new Solution(scanner.nextLine(), scanner.nextLine(), m, n);
+        RansomNote s = new RansomNote(scanner.nextLine(), scanner.nextLine(), m, n);
         scanner.close();
         
         boolean answer = s.solve();
